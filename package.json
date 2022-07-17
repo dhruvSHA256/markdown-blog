@@ -4,7 +4,8 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "app": "ls *.js | entr -r node app.js"
+        "app": "node app.js",
+        "dev": "ls *.js | entr -r node app.js"
     },
     "dependencies": {
         "dompurify": "^2.3.9",
