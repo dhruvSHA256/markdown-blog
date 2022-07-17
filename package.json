@@ -4,12 +4,13 @@
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-        "app": "ls *.js | entr -r node server.js"
+        "app": "ls *.js | entr -r node app.js"
     },
     "dependencies": {
         "dompurify": "^2.3.9",
         "ejs": "^3.1.8",
         "express": "^4.18.1",
+        "hljs": "^6.2.3",
         "jsdom": "^20.0.0",
         "marked": "^4.0.18",
         "method-override": "^3.0.0",

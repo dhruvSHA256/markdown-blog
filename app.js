@@ -20,14 +20,13 @@ if (!DB_PASS) {
 
 const MONGO_URL = `mongodb+srv://${DB_USER}:${DB_PASS}@cluster0.tcwwmec.mongodb.net/?retryWrites=true&w=majority`;
 
-
 mongoose.connect(MONGO_URL,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
     });
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
 

@@ -1,9 +1,27 @@
 const mongoose = require("mongoose");
 const slugify = require('slugify');
-const { marked } = require('marked');
 const createDomPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
+const { marked } = require('marked');
 const dompurify = createDomPurify(new JSDOM().window);
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    highlight: function(code, lang) {
+        const hljs = require('highlight.js');
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language }).value;
+    },
+    langPrefix: 'hljs language-', // highlight.js css expects a top-level 'hljs' class.
+    pedantic: false,
+    gfm: true,
+    breaks: true,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false,
+    xhtml: false
+});
+
 
 const articleSchema = new mongoose.Schema({
     title: {
